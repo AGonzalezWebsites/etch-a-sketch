@@ -7,6 +7,7 @@ const gridSliderButton = document.querySelector(`.slidecontainer button`);
 gridSliderButton.onclick = () => initializeBoard(gridSlider.value);
 
 const initializeBoard = (num) => {
+    if (nodesCreated) removeNodes();
     addNodes(num)
     //added here to add listeners come after nodes are created
     initializeEventListeners()
@@ -21,23 +22,34 @@ const initializeEventListeners = () => {
         node.addEventListener(`mouseover`, () => {
             colorNode(node);
         })
+        
     });
 }
 
+let nodesCreated = false;
+let nodesAmount = 0;
 const addNodes = (num) => {
+    
     for (i = 0; i < num; i++) {
-        const newDiv = document.createElement('div');
+
+        let newDiv = document.createElement('div');
         newDiv.className = "leftNode";
         canvas.appendChild(newDiv)
         
         for (j = 0; j < num; j++) {
-        const nodeDiv = document.createElement('div');
+        let nodeDiv = document.createElement('div');
         newDiv.appendChild(nodeDiv);
         }
     }
-
+    nodesAmount = num;
+    nodesCreated = true;
 }
 
+const removeNodes = () => {
+    for (i=0; i < nodesAmount; i++) {
+        canvas.children[0].remove()
+    }
+}
 
 const colorNode = (node) => {
     console.log(node)

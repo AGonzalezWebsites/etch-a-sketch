@@ -2,6 +2,11 @@ html, body {
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    background: linear-gradient(357deg, #EADEDB 0%, #77c6c9 50%, #87c6f0 80%);
+}
+
 .contentContainer {
     display: flex;
     justify-content: center;
@@ -10,9 +15,12 @@ html, body {
 .canvas {
     display:flex;
     flex-direction: column;
-    flex: 0 0 960px;
-    min-height: 960px;
-    border: 1px solid black;
+    flex: 0 1 800px;
+    min-height: 700px;
+    max-height: 700px;
+    background-color: #ffffff;
+    border: 4px inset black;
+    border-radius: 5px;
 }
 
 .leftNode {
@@ -24,19 +32,22 @@ html, body {
 .leftNode div {
     display: flex;
     flex: 1;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 1px dotted rgb(114, 114, 114);
+    border-radius: 2px;
 }
 
 .controlBox {
     display: flex;
     justify-content: center;
     width: 400px;
-    margin: 10px auto;
+    margin: 0 auto;
 }
 
 .controlBox label {
     border: 5px inset black;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border-top: 0px;
     padding: 10px;
 }
 
@@ -51,7 +62,7 @@ html, body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 10px;
+    margin: 0;
     height:125px;
 }
 
@@ -88,8 +99,9 @@ html, body {
 
 #clearButton {
     display: flex;
+    flex-direction: row;
     text-align: center;
-    margin: 10px;
+
 }
 
 #clearButton button {
